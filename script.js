@@ -71,6 +71,11 @@ function verificaViradas(element) {
         if (acertos === numeroDeCartas / 2) {
             alert(`Parabéns! Você ganhou com ${tentativas / 2} tentativas em ${timer - 1} segundos!`);
             clearInterval(myTimer);
+            let perguntaFinal = prompt('Gostaria de continuar?');
+            perguntaFinal.toLowerCase
+            if (perguntaFinal === 'sim') {
+                document.location.reload(true);
+            }
         }
         primeiraCarta = null;
         segundaCarta = null;
