@@ -1,11 +1,13 @@
 /* let numeroDeCartas = prompt('Digite o número de cartas'); */
-let numeroDeCartas = 14;
+let numeroDeCartas = 4;
 numeroDeCartas = Number(numeroDeCartas);
 let viradas = 0;
 let tentativas = 0;
 const arrayDeSorteio = [];
 let primeiraCarta = null;
 let segundaCarta = null;
+let acertos = 0;
+let timer = 0;
 
 
 /* while (numeroDeCartas < 4 || numeroDeCartas > 14 || (numeroDeCartas % 2 !== 0)) {
@@ -31,6 +33,12 @@ for (let i = arrayDeSorteio.length; i;) {
 console.log(numeroDeCartas);
 console.log(arrayDeSorteio);
 
+//Timer
+let contador = document.querySelector('.contador');
+const myTimer = setInterval(function () {contador.innerHTML = `<p>${timer}</p>`; timer++}, 1000);
+    
+
+
 let parrots = document.querySelector('.parrots');
 //Gera as cartas embaralhadas no HTML
 for (let i = 0; i < numeroDeCartas; i++) {
@@ -41,13 +49,12 @@ for (let i = 0; i < numeroDeCartas; i++) {
 function toggleFlip(element) {
     //Acresceta +1 no contador de tentativas toda vez que uma carta for clicada
     tentativas++;
-    let contador = document.querySelector('.contador');
-    contador.innerHTML = `<p>${tentativas}</p>`;
 
     //Vira as cartas clicadas
     let frontCard = document.querySelector('.frontCard');
     element.classList.add("backCard");
 
+    //Salva a primeira e a segunda carta viradas para compará-las depois
     if (primeiraCarta === null) {
         primeiraCarta = element;
     } else if (segundaCarta === null) {
@@ -57,9 +64,14 @@ function toggleFlip(element) {
 
 }
 
+//Faz a comparação das cartas se são iguais
 function verificaViradas(element) {
     if (primeiraCarta.innerHTML == segundaCarta.innerHTML) {
-        console.log('São iguais');
+        acertos++;
+        if (acertos === numeroDeCartas / 2) {
+            alert(`Parabéns! Você ganhou com ${tentativas / 2} tentativas em ${timer - 1} segundos!`);
+            clearInterval(myTimer);
+        }
         primeiraCarta = null;
         segundaCarta = null;
     } else {
