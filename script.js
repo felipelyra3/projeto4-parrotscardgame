@@ -1,5 +1,5 @@
-/* let numeroDeCartas = prompt('Digite o número de cartas'); */
-let numeroDeCartas = 4;
+let numeroDeCartas = prompt('Digite o número de cartas');
+/* let numeroDeCartas = 4; */
 numeroDeCartas = Number(numeroDeCartas);
 let viradas = 0;
 let tentativas = 0;
@@ -10,9 +10,9 @@ let acertos = 0;
 let timer = 0;
 
 
-/* while (numeroDeCartas < 4 || numeroDeCartas > 14 || (numeroDeCartas % 2 !== 0)) {
+while (numeroDeCartas < 4 || numeroDeCartas > 14 || (numeroDeCartas % 2 !== 0)) {
     numeroDeCartas = prompt('Digite um valor válido');
-} */
+}
 
 //Gera os números dos gifs das cartas
 for (let i = 0; i < numeroDeCartas / 2; i++) {
@@ -72,7 +72,7 @@ function verificaViradas(element) {
             alert(`Parabéns! Você ganhou com ${tentativas / 2} tentativas em ${timer - 1} segundos!`);
             clearInterval(myTimer);
             let perguntaFinal = prompt('Gostaria de continuar?');
-            perguntaFinal.toLowerCase
+            perguntaFinal.toLowerCase();
             if (perguntaFinal === 'sim') {
                 document.location.reload(true);
             }
