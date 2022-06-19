@@ -1,0 +1,74 @@
+body {
+    background-color: #EEF9BF;
+}
+
+.pagina {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Roboto;
+    font-size: 56px;
+    font-weight: 700;
+    color: #75B79E;
+    margin: 40px;
+}
+
+.parrots {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.frontCard {
+    width: 117px;
+    height: 146px;
+    background: #A7E9AF;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    margin: 30px;
+    background-image: url(./Assets/front\ 1parrot.png);
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform .5s;
+}
+
+.frontCard img {
+    opacity: 0;
+}
+
+.backCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 117px;
+    height: 146px;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    margin: 30px;
+    /* background-image: url(./Assets/parrot.png); */
+    background-image: none;
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotateY(180deg);
+}
+
+.backCard img {
+    opacity: 1;
+}
+
+.contador {
+    width: 200px;
+    height: 55px;
+    background-color: rgb(78, 78, 78);
+    position: absolute;
+    top: 120px;
+    right: -100px;
+    border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+}
+
+.contador p {
+    margin-left: 18px;
+}
